@@ -12,6 +12,10 @@ class Shield:
     def be_raised(self):
         self.is_raised = True
 
+    def check_level(self):
+        return 4000
+
+
 class MyTestCase(unittest.TestCase):
 
     def setUp(self):
@@ -23,6 +27,11 @@ class MyTestCase(unittest.TestCase):
     def test_can_be_raised(self):
         self.shield.be_raised()
         self.assertTrue(self.shield.is_up())
+
+    def test_shield_starts_with_4000_energy_by_default(self):
+        self.assertEquals(4000, self.shield.check_level())
+
+
 
 if __name__ == '__main__':
     unittest.main()
