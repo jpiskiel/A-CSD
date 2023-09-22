@@ -19,16 +19,21 @@ class Shield:
 class MyTestCase(unittest.TestCase):
 
     def setUp(self):
+        #Given
         self.shield = Shield()
 
     def test_down_by_default(self):
+        #When & Then
         self.assertFalse(self.shield.is_up())
 
     def test_can_be_raised(self):
+        #When
         self.shield.be_raised()
+        #Then
         self.assertTrue(self.shield.is_up())
 
     def test_shield_starts_with_4000_energy_by_default(self):
+        #When & Then
         self.assertEquals(4000, self.shield.check_level())
 
 
