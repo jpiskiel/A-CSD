@@ -1,9 +1,9 @@
 class Shield:
 
-    def __init__(self):
+    def __init__(self, shieldlevel = 4000):
         self.is_raised = False
         self.SHIELD_LEVEL_MAX = 10000
-        self.shield_level = 4000
+        self.shield_level = shieldlevel
 
     def is_up(self):
         return self.is_raised
