@@ -1,20 +1,6 @@
 import unittest
 
-
-class Shield:
-
-    def __init__(self):
-        self.is_raised = False
-
-    def is_up(self):
-        return self.is_raised
-
-    def be_raised(self):
-        self.is_raised = True
-
-    def check_level(self):
-        return 4000
-
+from Ship.Shield import Shield
 
 class MyTestCase(unittest.TestCase):
 
@@ -36,7 +22,19 @@ class MyTestCase(unittest.TestCase):
         #When & Then
         self.assertEquals(4000, self.shield.check_level())
 
+    def test_shield_can_receive_energy_from_ship(self):
+        #When
+        self.shield.receive_energy(2000)
+        new_level = self.shield.check_level()
+        #Then
+        self.assertEqual(6000, new_level)
 
+    def test_shield_level_max_10000(self):
+        #When
+        self.shield.receive_energy(20000)
+        new_level = self.shield.check_level()
+        #Then
+        self.assertEqual(10000, new_level)
 
 if __name__ == '__main__':
     unittest.main()
